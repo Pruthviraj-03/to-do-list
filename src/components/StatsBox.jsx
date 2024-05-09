@@ -25,17 +25,19 @@ const StatsBox = ({ todoId }) => {
         <div className="statsdata">
           <div className="totaldatabar">
             <span className="value">Total</span>
-            <div className="progressbar">
+            <div className="total-progressbar tablet:w-10/12 pc:w-9/12">
               <div
                 className="totalprogress"
                 style={{ width: `${completionPercentage}%` }}
               ></div>
             </div>
-            <span className="count">{totalTasks}</span>
+            <div className="count">
+              <span>{totalTasks}</span>
+            </div>
           </div>
           <div className="completedatabar">
             <span className="value">Complete</span>
-            <div className="progressbar">
+            <div className="complete-progressbar tablet:w-8/12 pc:w-7/12">
               <div
                 className="completeprogress"
                 style={{
@@ -44,11 +46,13 @@ const StatsBox = ({ todoId }) => {
                 }}
               ></div>
             </div>
-            <span className="count">{completedTasks}</span>
+            <div className="count laptop:w-6 laptop:h-6">
+              <span>{completedTasks}</span>
+            </div>
           </div>
           <div className="incompletedatabar">
             <span className="value">Incomplete</span>
-            <div className="progressbar">
+            <div className="incomplete-progressbar tablet:w-8/12 pc:w-7/12">
               <div
                 className="incompleteprogress"
                 style={{
@@ -57,11 +61,13 @@ const StatsBox = ({ todoId }) => {
                 }}
               ></div>
             </div>
-            <span className="count">{incompleteTasks}</span>
+            <div className="count">
+              <span>{incompleteTasks}</span>
+            </div>
           </div>
           <div className="completiondatabar">
             <span className="value">Completion</span>
-            <div className="progressbar">
+            <div className="completion-progressbar tablet:w-8/12 pc:w-7/12">
               <div
                 className="completionprogress"
                 style={{

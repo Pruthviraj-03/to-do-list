@@ -42,7 +42,6 @@
   border: 1px solid rgba(240, 240, 240, 0.37);
   border-radius: 40px;
   background-color: rgba(0, 0, 0, 0.726);
-  /* background-color: rgba(0, 0, 0, 0.9); */
 }
 
 .underbox {
@@ -104,9 +103,9 @@
   height: 75%;
   width: 100%;
   /* border: 1px solid white; */
-  padding: 10px;
+  padding: 11px;
   margin-top: 10px;
-  gap: 13px;
+  gap: 15px;
   position: relative;
 }
 
@@ -244,11 +243,9 @@
 }
 
 .addtodobar input {
-  /* color: var; */
   color: var(--main-white);
   width: 88%;
   font-size: 20px;
-  /* font-weight: bold; */
   font-family: "Times New Roman", Times, serif;
   letter-spacing: 1.5px;
   border-bottom: 1px solid var(--main-grey);
@@ -258,8 +255,6 @@
 }
 
 .addtodobar input::placeholder {
-  /* color: grey; */
-  /* color: var(--main-white); */
   color: rgba(240, 240, 240, 0.712);
   font-size: 20px;
   font-weight: bold;
@@ -399,7 +394,7 @@
   margin-left: 4px;
 }
 
-.totaldatabar .progressbar {
+.total-progressbar {
   width: 64%;
   height: 10px;
   border: 1px solid black;
@@ -409,7 +404,7 @@
   margin-left: 5px;
 }
 
-.completedatabar .progressbar {
+.complete-progressbar {
   width: 50%;
   height: 10px;
   border: 1px solid black;
@@ -419,7 +414,7 @@
   margin-left: 5px;
 }
 
-.incompletedatabar .progressbar {
+.incomplete-progressbar {
   width: 45%;
   height: 10px;
   border: 1px solid black;
@@ -429,7 +424,7 @@
   margin-left: 5px;
 }
 
-.completiondatabar .progressbar {
+.completion-progressbar {
   width: 55%;
   height: 10px;
   border: 1px solid black;
@@ -441,49 +436,30 @@
 
 .count {
   justify-self: flex-end;
-  color: black;
-  font-weight: 500;
-  font-size: 14px;
-  margin-left: 5px;
-  padding: 0 5px;
-  border-radius: 50%;
   background-color: var(--main-white);
   border: 1px solid black;
+  height: 27.5px;
+  width: 27.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
 }
 
-.completedatabar .count {
-  justify-self: flex-end;
+.count {
   color: black;
   font-weight: 500;
   font-size: 14px;
-  margin-left: 5px;
-  padding: 0 8px;
   border-radius: 50%;
-  background-color: var(--main-white);
-  border: 1px solid black;
-}
-
-.incompletedatabar .count {
-  justify-self: flex-end;
-  color: black;
-  font-weight: 500;
-  font-size: 14px;
-  margin-left: 5px;
-  padding: 0 8px;
-  border-radius: 50%;
-  background-color: var(--main-white);
-  border: 1px solid black;
 }
 
 .completeprogress {
-  background-color: red;
   width: 80%;
   height: 100%;
   border-radius: 5px;
 }
 
 .incompleteprogress {
-  background-color: green;
   width: 30%;
   height: 100%;
   border-radius: 5px;

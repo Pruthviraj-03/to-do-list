@@ -90,7 +90,7 @@ const Todo = ({ todo }) => {
   return (
     <>
       <div className="secondpage">
-        <div className="todo lg:w-1/3 md:w-1/2">
+        <div className="todo tablet:w-3/5 tablet:h-3/5 tablet:p-1.5 laptop:w-1/3 laptop:p-1.5 pc:w-3/12 pc:h-2/3 pc:p-1.5">
           <div className="underbox">
             <div className="titlebar">
               <input
@@ -101,7 +101,7 @@ const Todo = ({ todo }) => {
               {isBackButtonVisible ? (
                 <Link to="/">
                   <div
-                    className="backButton md:mt-2 md:ml-2 lg:mt-2 lg:ml-8"
+                    className="backButton tablet:mt-2 tablet:ml-2 laptop:mt-1.5  pc:mt-2 pc:ml-20"
                     title="back"
                   >
                     <FaArrowLeft />
@@ -109,7 +109,7 @@ const Todo = ({ todo }) => {
                 </Link>
               ) : (
                 <div
-                  className="donetodo md:mt-2 md:ml-2 lg:mt-2 lg:ml-8"
+                  className="donetodo tablet:mt-2 tablet:ml-2 laptop:mt-1.5 laptop:ml-12 pc:mt-2 pc:ml-20"
                   onClick={handleDoneClick}
                 >
                   <FaCheck />
@@ -123,7 +123,7 @@ const Todo = ({ todo }) => {
               )}
             </div>
 
-            <div className="addtodobar">
+            <div className="addtodobar tablet:mt-2 laptop:mt-1.5 pc:mt-3">
               <input
                 placeholder="Add todo"
                 value={todoText}
@@ -161,6 +161,30 @@ const Todo = ({ todo }) => {
             </div>
 
             {openStats && <StatsBox todoId={todo.id} />}
+
+            <div className="checktodos">
+              <div
+                className="activetodos"
+                title="active todos"
+                onClick={() => handleFilterTodos("active")}
+              >
+                <h3>active</h3>
+              </div>
+              <div
+                className="completedtodos"
+                title="completed todos"
+                onClick={() => handleFilterTodos("completed")}
+              >
+                <h3>completed</h3>
+              </div>
+              <div
+                className="alltodos"
+                title="all todos"
+                onClick={() => handleFilterTodos("all")}
+              >
+                <h3>all</h3>
+              </div>
+            </div>
 
             <div
               className={`allTodos ${

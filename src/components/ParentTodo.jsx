@@ -49,12 +49,12 @@ const ParentTodo = ({ search }) => {
         <Link key={index} to={`/todo/${todo.id}`}>
           <div
             key={todo.id}
-            className="box md:w-40 md:h-44 md:ml-2 lg:w-44 lg:h-48 lg:ml-3"
+            className="box tablet:w-48 tablet:h-52 tablet:ml-2.5 laptop:w-44 laptop:h-48 laptop:ml-3 pc:w-48 pc:h-52 pc:ml-3"
             title="open todo"
           >
             <h3>{todo.title}</h3>
             <div
-              className="deletetodo"
+              className="deletetodo tablet:ml-2 laptop:ml-1.5 pc:ml-2"
               title="delete todo"
               onClick={(e) => handleDelete(todo.id, e)}
             >
