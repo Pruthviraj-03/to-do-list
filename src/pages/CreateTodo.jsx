@@ -6,7 +6,7 @@ import {
   FaEllipsisV,
   FaPlus,
 } from "react-icons/fa";
-import StatsBox from "../components/StatsBox";
+// import StatsBox from "../components/StatsBox";
 import TodoTask from "../components/TodoTask";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,7 +14,7 @@ import { categorizeTodos, addTodo } from "../slice/initialTodoSlice";
 import { nanoid } from "@reduxjs/toolkit";
 
 const CreateTodo = () => {
-  const [openStats, setOpenStats] = useState(false);
+  // const [openStats, setOpenStats] = useState(false);
   const [search, setSearch] = useState("");
   const [todoText, setTodoText] = useState("");
   const [temporaryTodo, setTemporaryTodo] = useState({
@@ -28,12 +28,12 @@ const CreateTodo = () => {
   const dispatch = useDispatch();
   const todo = useSelector((state) => state.initialTodo.todos);
 
-  const handleOpenStats = () => {
-    setOpenStats(!openStats);
-  };
+  // const handleOpenStats = () => {
+  //   setOpenStats(!openStats);
+  // };
 
   const formatDate = (date) => {
-    return date.toLocaleString("en-US", {
+    return date.toLocaleString("en-IN", {
       day: "numeric",
       month: "long",
       hour: "numeric",
@@ -131,9 +131,7 @@ const CreateTodo = () => {
             </div>
 
             <div className="datebar">
-              {todo.updatedAt !== todo.createdAt && (
-                <span>{formatDate(todo.updatedAt)}</span>
-              )}
+              <span>{formatDate(new Date())}</span>
             </div>
 
             <div className="addtodobar tablet:mt-2 laptop:mt-1.5 pc:mt-3">
@@ -168,13 +166,13 @@ const CreateTodo = () => {
               <div
                 className="horizontaldots"
                 title="open the stats"
-                onClick={handleOpenStats}
+                // onClick={handleOpenStats}
               >
                 <FaEllipsisV />
               </div>
             </div>
 
-            {openStats && <StatsBox todoId={todo.id} />}
+            {/* {openStats && <StatsBox todoId={todo.id} />} */}
 
             <div className="checktodos">
               <div
@@ -201,9 +199,9 @@ const CreateTodo = () => {
             </div>
 
             <div
-              className={`allTodos ${
-                openStats ? "stats-open" : "stats-closed"
-              }`}
+            // className={`allTodos ${
+            //   openStats ? "stats-open" : "stats-closed"
+            // }`}
             >
               <TodoTask search={search} todo={temporaryTodo} />
             </div>

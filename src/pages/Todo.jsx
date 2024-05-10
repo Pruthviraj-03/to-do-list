@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   FaSearch,
   FaCheck,
@@ -23,7 +23,8 @@ const Todo = ({ todo }) => {
   const [search, setSearch] = useState("");
   const [todoText, setTodoText] = useState("");
   const [isBackButtonVisible, setBackButtonVisible] = useState(false);
-
+  const [lastUpdateTime, setLastUpdateTime] = useState(todo.updatedAt);
+  const [filterCategory, setFilterCategory] = useState("all");
   const dispatch = useDispatch();
 
   const handleOpenStats = () => {
@@ -33,6 +34,10 @@ const Todo = ({ todo }) => {
   const handleSearch = (e) => {
     setSearch(e.target.value);
   };
+
+  useEffect(() => {
+    setLastUpdateTime(todo.updatedAt); // Update last update time when todo is changed
+  }, [todo.updatedAt]);
 
   const formatDate = (date) => {
     return date.toLocaleString("en-US", {
@@ -72,8 +77,10 @@ const Todo = ({ todo }) => {
   };
 
   const handleFilterTodos = (category) => {
-    console.log("Selected category:", category);
-    dispatch(categorizeTodos({ category }));
+    if (filterCategory !== category) {
+      setFilterCategory(category); // Update local state
+      dispatch(categorizeTodos({ category })); // Dispatch action to Redux store
+    }
   };
 
   const handleDoneClick = () => {
@@ -118,9 +125,7 @@ const Todo = ({ todo }) => {
             </div>
 
             <div className="datebar">
-              {todo.updatedAt !== todo.createdAt && (
-                <span>{formatDate(todo.updatedAt)}</span>
-              )}
+              <span>{formatDate(new Date(lastUpdateTime))}</span>
             </div>
 
             <div className="addtodobar tablet:mt-2 laptop:mt-1.5 pc:mt-3">
